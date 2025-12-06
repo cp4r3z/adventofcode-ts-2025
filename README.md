@@ -1,8 +1,8 @@
 # Advent of Code 2025
 https://adventofcode.com/2025
 
-[![Build Status](https://github.com/cp4r3z/adventofcode-ts-2024/actions/workflows/node.js.yml/badge.svg)](https://github.com/cp4r3z/adventofcode-ts-2024/actions)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cp4r3z/adventofcode-ts-2024/main/LICENSE)
+[![Build Status](https://github.com/cp4r3z/adventofcode-ts-2025/actions/workflows/node.js.yml/badge.svg)](https://github.com/cp4r3z/adventofcode-ts-2025/actions)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cp4r3z/adventofcode-ts-2025/main/LICENSE)
 
 # Notables / Spoilers
 
