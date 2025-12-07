@@ -1,7 +1,8 @@
 function parse(input: string) {
     const toNumberArray = (s: string): number[] => {
         const re: RegExp = /(-?\d+)/g;
-        const matches = s.match(re) || [];
+        const matches = re.exec(s) || [];
+        //const matches = s.match(re) || [];
         const numbers = matches.map(Number);
         return numbers;
     };
