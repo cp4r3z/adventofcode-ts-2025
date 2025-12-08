@@ -404,6 +404,37 @@ describe('Common Tests: Intervals', () => {
         ).toBeTruthy();
     });
 
+    it('Union 0.1', async () => {
+        const b = new Interval.Interval(-1, 1);
+        const result = A.Union(b);
+        expect(
+            result[1].Equals(b)
+        ).toBeTruthy();
+    });
+
+    it('Union 0.3', async () => {
+        const b = new Interval.Interval(-1, 3);
+        const result = A.Union(b);
+        expect(
+            result[0].Equals(new Interval.Interval(-1, 8))
+        ).toBeTruthy();
+    });
+
+    it('Union 2.1', async () => {
+        const b = new Interval.Interval(3, 4);
+        const result = A.Union(b);
+        expect(
+            result[0].Equals(new Interval.Interval(2, 8))
+        ).toBeTruthy();
+    });
+
+    it('Union 4.0', async () => {
+        const b = new Interval.Interval(9, 10);
+        const result = A.Union(b);
+        expect(
+            result[1].Equals(b)
+        ).toBeTruthy();
+    });
 });
 
 describe('Common Tests: Trees', () => {

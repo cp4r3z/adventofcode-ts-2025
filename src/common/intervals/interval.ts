@@ -5,9 +5,11 @@ export interface IInterval {
     Low: number,
     High: number,
     toString(): string,
+    size():number,
     Contains(input: number): boolean,
     Equals(that: IInterval): boolean,
-    IntersectWith(that: IInterval): Intersection
+    IntersectWith(that: IInterval): Intersection,
+    Union(that: IInterval): IInterval[]
 }
 
 export enum In { // Whether or not we're currently in the this or that intervals. Is the bracket open.
@@ -76,6 +78,27 @@ export class Interval implements IInterval {
             high = endpoint;
         });
         return result;
+    }
+
+    Union(that: IInterval): IInterval[] {
+        // Possible outcomes:
+        // Return single interval (if overlap) or two (this and that)
+
+        let lesser: IInterval = this;
+        let greater: IInterval = that;
+        if (this.Low > that.Low) {
+            lesser = that;
+            greater = this;
+        }
+        // this Interval starts either before or at that interval
+        if (lesser.High >= greater.Low) {
+            // Intervals overlap
+            const high = Math.max(lesser.High, greater.High);
+            const union = new Interval(lesser.Low, high);
+            return [union];
+        }
+
+        return [this, that];
     }
 
     clone(): Interval { return new Interval(this.Low, this.High); }
