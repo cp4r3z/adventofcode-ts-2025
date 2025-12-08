@@ -15,6 +15,9 @@ Creating number patterns. I avoided using string manipulation because I figured 
 ## Day 04
 2D Grid
 
+## Day 05
+More interval training
+
 # Setup
 
 ## Building
