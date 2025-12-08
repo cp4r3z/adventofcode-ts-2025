@@ -90,8 +90,10 @@ export class Grid2D extends Map<string, GridPoint> implements IGraph {
         if (typeof (value) === 'undefined') {
             value = null;
             if (this.options.setOnGet) {
-                value = this.options.defaultValue;
-                this.set(hash, this.options.defaultValue);
+                //value = this.options.defaultValue; /// no we need a new GridPoint
+                value = new GridPoint(point.x,point.y,this.options.defaultValue)
+                this.set(hash, value);
+
             }
         }
         return value;
@@ -302,7 +304,7 @@ export class Grid2D extends Map<string, GridPoint> implements IGraph {
     public start: GridPoint = null;
     public end: GridPoint = null;
 
-    getNeighbors(point: GridPoint): GridPoint[] {
+    getNeighbors(point: GridPoint, addOrdinals:boolean = false): GridPoint[] {
         let neighbors:GridPoint[] = this._neighborCache.get(point);
         if (Array.isArray(neighbors)) {
             return neighbors;
@@ -319,7 +321,13 @@ export class Grid2D extends Map<string, GridPoint> implements IGraph {
         // });
 
         neighbors = [];
-        Direction.Cardinals.forEach((c: Direction.Cardinal) => {
+
+        let directions = Direction.Cardinals;
+        if (addOrdinals) {
+            directions = directions.concat(Direction.Ordinals);
+        }
+
+        directions.forEach((c: Direction.Cardinal) => {
             const xy: Points.IPoint2D = Direction.CardinalToXY.get(c);
             const neighbor: Points.IPoint2D = point.copy().move(xy);
             const p = this.getPoint(neighbor); // Warning! Is setOnGet true?
