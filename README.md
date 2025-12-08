@@ -12,6 +12,9 @@ First Day
 ## Day 02
 Creating number patterns. I avoided using string manipulation because I figured it would hurt performance, and then caved and used string manipulation for part 2. It turns out that it was as fast or faster than using mathematical operations.
 
+## Day 04
+2D Grid
+
 # Setup
 
 ## Building
