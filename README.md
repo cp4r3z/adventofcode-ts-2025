@@ -18,6 +18,9 @@ Creating number patterns. I avoided using string manipulation because I figured 
 ## Day 05
 More interval training
 
+## Day 06
+"Multi-Parent" tree. Most fun so far.
+
 # Setup
 
 ## Building
